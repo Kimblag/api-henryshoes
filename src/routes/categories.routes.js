@@ -2,7 +2,7 @@ import { Router } from "express";
 import {
   getCategory,
   getCategoryId,
-} from "../controllers/category.controller.js";
+} from "../controllers/Category.controller.js";
 
 const router = Router();
 
