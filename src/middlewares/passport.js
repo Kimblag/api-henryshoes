@@ -34,7 +34,7 @@ export const signInGoogle = new GoogleStrategy(
   {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3001/signin/google/callback",
+    callbackURL: "https://henryshoes-api.herokuapp.com/signin/google/callback",
     passReqToCallback: true,
   },
   async (accessToken, refreshToken, email, profile, done) => {
