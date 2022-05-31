@@ -24,14 +24,12 @@ app.use(
     name: "session",
     key: "express.sessionID",
     secret: process.env.COOKIE_KEY,
-    resave: false,
-    saveUninitialized: false,
+    resave: true,
+    saveUninitialized: true,
     cookie: {
+      sameSite: "none",
       maxAge: 1000 * 60 * 60 * 24 * 7,
-      secure: false,
-      domain: "localhost",
-      httpOnly: true,
-      path: "/",
+      secure: true,
     },
   })
 );
@@ -45,7 +43,7 @@ app.use(session({
 
 
 app.use(cors(corsOptions), (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Origin", process.env.CORS_URL || process.env.CORS_URL_2); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Headers",
