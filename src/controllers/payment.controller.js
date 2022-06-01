@@ -48,8 +48,8 @@ export const createPayment = async (req, res) => {
         brand_name: "HenryShoes",
         landing_page: "LOGIN",
         user_action: "PAY_NOW",
-        return_url: "https://client-henryshoes.vercel.app/payment/capture-order", //Si pagas con paypal, esta es la url de la pagina de retorno
-        cancel_url: "https://client-henryshoes.vercel.app/payment/cancel-order", //si cancela la compra, esta es la url de la pagina de retorno
+        return_url: "https://henryshoes-api.herokuapp.com/payment/capture-order", //Si pagas con paypal, esta es la url de la pagina de retorno
+        cancel_url: "https://henryshoes-api.herokuapp.com/payment/cancel-order", //si cancela la compra, esta es la url de la pagina de retorno
       },
     };
 
