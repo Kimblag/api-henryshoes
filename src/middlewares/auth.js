@@ -1,5 +1,5 @@
 export const isUserAuthenticated = (req, res, next) => {
-    console.log("GOOGLEEEE", req.user);
+    console.log(req.user)
     if(req.user){
         next();
     } else{

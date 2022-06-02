@@ -3,17 +3,18 @@ import Brands from "../models/Brands.js";
 import Category from "../models/Category.js";
 import Orders from "../models/Orders.js";
 import Products from "../models/Products.js";
+import Reviews from "../models/Reviews.js";
 import Sizes from "../models/Sizes.js";
 
 export const getAllProducts = async (req, res) => {
   try {
     const allProducts = await Products.findAll({
-      include: {
+      include: [{
         model: Brands,
-        attributes: ["name"],
-        model: Sizes,
+        attributes: ["name"]},
+        {model: Sizes,
         attributes: ["size"],
-      },
+      }],
     });
 
     const { name } = req.query;
@@ -63,10 +64,12 @@ export const getDetails = async (req, res) => {
   let id = req.params.id;
   try {
     const Models_Id = await Products.findByPk(id, {
-      include: {
+      include: [{
         model: Sizes,
-        attributes: ["size"],
-      },
+        attributes: ["size"]},
+        {model: Reviews,
+        attributes: ["commentary", "rating", "email"]
+      }],
     });
 
     if (Models_Id !== null) {

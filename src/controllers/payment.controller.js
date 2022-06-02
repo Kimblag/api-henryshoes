@@ -48,8 +48,8 @@ export const createPayment = async (req, res) => {
         brand_name: "HenryShoes",
         landing_page: "LOGIN",
         user_action: "PAY_NOW",
-        return_url: "https://henryshoes-api.herokuapp.com/payment/capture-order", //Si pagas con paypal, esta es la url de la pagina de retorno
-        cancel_url: "https://henryshoes-api.herokuapp.com/payment/cancel-order", //si cancela la compra, esta es la url de la pagina de retorno
+        return_url: "http://localhost:3001/payment/capture-order", //Si pagas con paypal, esta es la url de la pagina de retorno
+        cancel_url: "http://localhost:3001/payment/cancel-order", //si cancela la compra, esta es la url de la pagina de retorno
       },
     };
 
@@ -109,11 +109,11 @@ export const capturePayment = async (req, res) => {
     })
 
     console.log(response.data);
-  res.redirect("https://client-henryshoes.vercel.app/payment-success"); //! redireccionar a la pagina de gracias por comprar o perfil usuario/ordenes
+  res.redirect("http://localhost:3000/payment-success"); //! redireccionar a la pagina de gracias por comprar o perfil usuario/ordenes
 };
 
 export const cancelPayment = async (req, res) => {
-  res.redirect('https://client-henryshoes.vercel.app/payment-cancel'); //! redireccionar a la pagina del carrito
+  res.redirect('http://localhost:3000/payment-cancel'); //! redireccionar a la pagina del carrito
 };
 
 
