@@ -64,10 +64,10 @@ export const signInController = async (req, res) => {
 };
 
 export const sigInGoogleFailureController = (req, res) => {
-  return res.status(400).redirect("http://localhost:3000/error/login");
+  return res.status(400).redirect("https://client-henryshoes.vercel.app/error/login");
 };
 export const sigInGoogleSuccessController = (req, res) => {
-  return res.status(400).redirect("http://localhost:3000/signin/success");
+  return res.status(400).redirect("https://client-henryshoes.vercel.app/signin/success");
 };
 
 export const sigInCallbackController = async (req, res) => {
@@ -109,7 +109,7 @@ export const forgotPassword = async (req, res, next) => {
       { expiresIn: "15m" }
     );
     //! TODO: CAMBIAR A PROCESS.ENV
-    verificationLink = `http://localhost:3000/reset-password/${token}`;
+    verificationLink = `https://client-henryshoes.vercel.app/reset-password/${token}`;
     user.resetToken = token;
     await user.save();
   } catch (error) {
